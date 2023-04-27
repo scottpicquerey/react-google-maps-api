@@ -5,7 +5,7 @@ import { Layout } from "./Layout";
 export const App = () => (
   <GoogleMapsProvider>
     <Layout>
-      <GoogleMaps locations={LOCATIONS} />
+      <GoogleMaps mapId="map_id" locations={LOCATIONS} />
     </Layout>
   </GoogleMapsProvider>
 );

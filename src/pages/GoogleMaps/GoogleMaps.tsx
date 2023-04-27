@@ -7,10 +7,12 @@ const DEFAULT_ZOOM = 4;
 export const GoogleMaps = ({
   locations,
   useClusters = true,
+  mapId,
   className,
 }: {
   locations: ReadonlyArray<google.maps.LatLngLiteral>;
   useClusters?: boolean;
+  mapId?: string;
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -30,12 +32,13 @@ export const GoogleMaps = ({
       const map = new window.google.maps.Map(ref.current, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
+        mapId,
       });
 
       // Load markers
       onLoad(map);
     }
-  }, [ref, onLoad]);
+  }, [ref, onLoad, mapId]);
 
   return (
     <div
