@@ -1,11 +1,11 @@
 import React from "react";
-import { GoogleMaps, GoogleMapsProvider } from "./GoogleMaps";
+import { GoogleMaps, GoogleMapsProvider, LOCATIONS } from "./GoogleMaps";
 import { Layout } from "./Layout";
 
 export const App = () => (
   <GoogleMapsProvider>
     <Layout>
-      <GoogleMaps />
+      <GoogleMaps locations={LOCATIONS} />
     </Layout>
   </GoogleMapsProvider>
 );
