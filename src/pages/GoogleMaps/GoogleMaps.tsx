@@ -1,23 +1,27 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import { addSingleMarkers } from "./markers";
+import { addClusterMarkers, addSingleMarkers } from "./markers";
 
 const DEFAULT_CENTER = { lat: 48.8566, lng: 2.3522 };
-const DEFAULT_ZOOM = 7;
+const DEFAULT_ZOOM = 4;
 
 export const GoogleMaps = ({
   locations,
+  useClusters = true,
   className,
 }: {
   locations: ReadonlyArray<google.maps.LatLngLiteral>;
+  useClusters?: boolean;
   className?: string;
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Displays single markers on map when called
+  // Displays cluster markers or single markers on map when called
   const onLoad = useCallback(
     (map: google.maps.Map | null | undefined) =>
-      addSingleMarkers(locations)(map),
-    [locations]
+      useClusters
+        ? addClusterMarkers(locations)(map)
+        : addSingleMarkers(locations)(map),
+    [useClusters, locations]
   );
 
   useEffect(() => {
