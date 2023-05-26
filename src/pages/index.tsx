@@ -1,8 +1,5 @@
-import { Inter } from "next/font/google";
 import Head from "next/head";
-import { App } from "./App";
-
-const inter = Inter({ subsets: ["latin"] });
+import App from "./App";
 
 export default function Home() {
   return (
