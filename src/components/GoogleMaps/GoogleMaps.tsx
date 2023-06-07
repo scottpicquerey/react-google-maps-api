@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { addClusterMarkers, addSingleMarkers } from "./markers";
 
 const DEFAULT_CENTER = { lat: 48.8566, lng: 2.3522 };
@@ -17,15 +17,6 @@ export const GoogleMaps = ({
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Displays cluster markers or single markers on map when called
-  const onLoad = useCallback(
-    (map: google.maps.Map | null | undefined) =>
-      useClusters
-        ? addClusterMarkers(locations)(map)
-        : addSingleMarkers(locations)(map),
-    [useClusters, locations]
-  );
-
   useEffect(() => {
     // Display the map
     if (ref.current) {
@@ -35,10 +26,12 @@ export const GoogleMaps = ({
         mapId,
       });
 
-      // Load markers
-      onLoad(map);
+      // Displays cluster markers or single markers on map when called
+      useClusters
+        ? addClusterMarkers(locations)(map)
+        : addSingleMarkers(locations)(map);
     }
-  }, [ref, onLoad, mapId]);
+  }, [ref, mapId, locations, useClusters]);
 
   return (
     <div
