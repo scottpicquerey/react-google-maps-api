@@ -1,17 +1,17 @@
 import React from "react";
 import {
   GoogleMaps,
-  GoogleMapsProvider,
+  GoogleMapsWrapper,
   LOCATIONS,
   Layout,
 } from "../components";
 
 const App = () => (
-  <GoogleMapsProvider>
+  <GoogleMapsWrapper>
     <Layout>
       <GoogleMaps mapId="map_id" locations={LOCATIONS} />
     </Layout>
-  </GoogleMapsProvider>
+  </GoogleMapsWrapper>
 );
 
 export default App;

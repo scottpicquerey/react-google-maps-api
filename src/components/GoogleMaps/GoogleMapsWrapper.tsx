@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper } from "@googlemaps/react-wrapper";
 
-export const GoogleMapsProvider = ({
+export const GoogleMapsWrapper = ({
   children,
 }: {
   children: React.ReactNode;

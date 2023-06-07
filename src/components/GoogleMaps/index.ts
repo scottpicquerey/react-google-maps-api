@@ -1,3 +1,3 @@
 export { GoogleMaps } from "./GoogleMaps";
-export { GoogleMapsProvider } from "./GoogleMapsProvider";
+export { GoogleMapsWrapper } from "./GoogleMapsWrapper";
 export { LOCATIONS } from "./locationsData";
