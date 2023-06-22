@@ -28,8 +28,8 @@ export const GoogleMaps = ({
 
       // Displays cluster markers or single markers on map when called
       useClusters
-        ? addClusterMarkers(locations)(map)
-        : addSingleMarkers(locations)(map);
+        ? addClusterMarkers({ locations, map })
+        : addSingleMarkers({ locations, map });
     }
   }, [ref, mapId, locations, useClusters]);
 
